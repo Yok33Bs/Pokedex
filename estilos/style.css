@@ -1,0 +1,147 @@
+:root{
+    --baseColor:rgb(177, 8, 8);
+    --secondColor:rgb(228, 228, 228);
+    --borderColor:rgb(49, 49, 49);
+}
+
+body{
+    font-family: 'Merienda', cursive;
+    width: 100%;
+    background-image: url(./img/pokeball.png);
+    background-size: 20%;
+    display: grid;
+    grid-auto-flow: row;
+    margin: 0%;
+    justify-items: center;
+
+}
+
+#navegacion{
+    width: 100%;
+    border-bottom: 4px solid var(--borderColor);
+    background-color: var(--baseColor);
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+}
+
+#divBuscador{
+    width: 100%;
+    display: grid;
+    margin: 1%;
+    justify-items: center;
+}
+
+#nombre {
+    width: 80%;
+}
+
+#divFiltros{
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2,45%);
+    margin: 0.8%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Filtro {
+    background-color: var(--secondColor);
+    color: rgb(58, 58, 58);
+    border: var(--borderColor);
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center
+}
+
+/*contenido*/
+
+#contain{
+    border: 3px solid var(--borderColor);
+    border-radius: 5%;
+    margin: 1.3%;
+    width: 80%;
+    background-color: var(--secondColor);
+}
+
+#pokeTable{
+    display: flex;
+    width: 100%;
+    border-radius: 5%;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.pokeCard{
+    display: flex;
+    width: 20%;
+    border: 3px solid var(--borderColor);
+    border-radius: 3%;
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+}
+.pokeCard:hover{
+    background-color: rgb(202, 55, 55);
+    color: var(--secondColor);
+}
+
+.pokeCard img{
+    width: 60%;
+    border-radius: 50%;
+    background-color: rgba(224, 228, 228, 0.776);
+}
+
+#pokeDatos{
+    display: none;
+}
+
+/*
+.pokemon:hover{
+   background-color: rgb(1, 135, 165);
+   color: var(--secondColor);
+}
+#pokeDatos{
+    background-color: rgb(220, 224, 195);
+    border-top-right-radius: 37px;
+    border-bottom-right-radius: 37px;
+    padding: 2%;
+}
+#pokeDatos #p{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 70% 25%;
+    align-items: center;
+    justify-content: space-between;
+}
+#pokeDatos #datos{
+    display: grid;
+    grid-template-rows: 30% 50%;
+    align-content: space-around;
+}
+#pokeDatos #principal{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4%;
+}
+#pokeDatos #otros{
+    width: 30%;
+    padding-left: 15%;
+}
+#pokeDatos #imagen{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+#pokeDatos #descripcion{
+    width: 80%;
+    margin-left: 8%;
+    margin-top: 2%;
+    margin-right: 8%;
+    border: 3px ridge var(--baseColor);
+    border-radius: 15px;
+    padding: 1.5%;
+};*/
