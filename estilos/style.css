@@ -41,39 +41,45 @@ body{
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(2,45%);
+    grid-template-columns: 17% 35% 9% 35%;
     margin: 0.8%;
-    align-items: center;
     justify-content: space-around;
+    justify-items: center;
 }
 
 .Filtro {
     background-color: var(--secondColor);
-    color: rgb(58, 58, 58);
+    color: rgb(44, 44, 44);
     border: var(--borderColor);
     border-radius: 10px;
     font-size: 15px;
     text-align: center
 }
 
+.select{
+    width: 100%;
+}
+
 /*contenido*/
 
 #contain{
-    border: 3px solid var(--borderColor);
-    border-radius: 5%;
-    margin: 1.3%;
-    width: 80%;
-    background-color: var(--secondColor);
+    width: 100%;
+    padding: 2%;
+    display: grid;
+    justify-items: center;
 }
 
-#pokeTable{
+#contain #pokeTable{
+    border: 3px solid var(--borderColor);
+    border-radius: 70px;
+    width: 80%;
+    background-color: var(--secondColor);
     display: flex;
-    width: 100%;
-    border-radius: 5%;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
 }
+
 
 .pokeCard{
     display: flex;
@@ -95,15 +101,11 @@ body{
     background-color: rgba(224, 228, 228, 0.776);
 }
 
-#pokeDatos{
+#contain #pokeDatos{
     display: none;
 }
 
 /*
-.pokemon:hover{
-   background-color: rgb(1, 135, 165);
-   color: var(--secondColor);
-}
 #pokeDatos{
     background-color: rgb(220, 224, 195);
     border-top-right-radius: 37px;

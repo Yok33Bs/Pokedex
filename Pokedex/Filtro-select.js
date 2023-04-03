@@ -1,4 +1,5 @@
-import peticion, {showPokemon} from "./Pokedex.js";
+import peticion from "./searchPokemon.js"
+import showPokemon from "./Pokedex.js";
 
 export default async function generateOptions (select){
    select.innerHTML = '';
@@ -14,20 +15,20 @@ export default async function generateOptions (select){
 
 
 export async function filterPokemon(selected){
+   pokeTable.innerHTML = "" ;
    console.log(selected);
+
    const result = await peticion(selected.value);
    
-  switch (selected.id) {
-   case 'generation':filterGeneration(result); break;
-
-   case 'type':filterType(result); break;
-   
-   default: alert('ponte vioh');break;
+   switch (selected.id) {
+      case 'generation' : filterGeneration(result); break;
+      
+      case 'type' : filterType(result); break;
+      
   }
 };
 
 function filterGeneration(selected) {
-   pokeTable.innerHTML = "" ;
    selected.pokemon_species.forEach(async species =>{
       
       const specie = await peticion(species.url);

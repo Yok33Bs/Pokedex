@@ -1,34 +1,34 @@
-//      °buscador por nombre
-//      
-//  -categorias
-//      generaciones
-//      region
-//      tipos
-//      °
-// 
-//*Pokemon
-// 
-//    -id 
-//    -nombre
-//    -imagen
-//    -peso
-//    -altura
-//    -generacion
-//    -tipo
-//    -descripcion
+import generateOptions, { filterPokemon } from "./Filtro-select.js";
+import peticion from "./searchPokemon.js";
 
-//elementos HTML 
+//queryselector
 const pokeTable = document.querySelector('#pokeTable');
+const selects = document.querySelectorAll('.select');
+const pokeDatos = document.querySelector('#pokeDatos');
+//const options = document.querySelectorAll('.option');
+
+
+//eventos
+
+pokeTable.onload = allPokemon()
+
+selects.forEach(select =>{
+
+    select.onload = generateOptions(select)
+
+    select.addEventListener('change', (e)=>{             
+        e.preventDefault();
+        filterPokemon(select);
+    });
+    
+});
+
+
+
 
 //funciones
-export default async function peticion (url) {
-    const response = await fetch(url);  
-    const responseJson = await response.json();
 
-    return responseJson;
-};
-
-export function showPokemon(pokemon) {
+export default function showPokemon(pokemon) {
 
     const pokeCard = `
     <card class="pokeCard">
@@ -40,43 +40,14 @@ export function showPokemon(pokemon) {
     pokeTable.innerHTML += pokeCard ;
 };
 
-/*
-async function pokeInfo(pokemon) {
+async function allPokemon( max = 12 ){
 
-    const pokedata = await peticion(pokemon.dataset.url);
-    const species = await peticion(pokedata.species.url);
-    const region = await peticion(species.generation.url);
-    const tipos = []
-    pokedata.types.forEach(tipo=>{
-        tipos.push(tipo.type.name)
-    })
-    let descripcion = ''
-    species.flavor_text_entries.forEach(flavorTextEntrie =>{
-        const {flavor_text , language } = flavorTextEntrie
-        if(language.name == 'es'){descripcion += `${flavor_text} `}
-    })
-    
+   for(let i = 1; i <= max; i++){
+      const pokemon = await peticion(`https://pokeapi.co/api/v2/pokemon/${i}/`)
+      showPokemon(pokemon);
+   }
+}
 
-    pokeDatos.innerHTML = `
-        <div id="p">
-            <div id="datos">
-                <div id="principal">
-                    <h1>${pokedata.name}</h1>
-                    <h2>ID: # ${pokedata.id.toString().padStart(3,0)}</h2>
-                </div>
-                <div id="otros">
-                    <h4>Generación: ${species.generation.name}</h4>
-                    <h4>Región: ${region.main_region.name}</h4>
-                    <h4>Tipos:${tipos}</h4>
-                </div>
-            </div>
-            <div id="imagen">
-            <img src="${pokedata.sprites.other.dream_world.front_default}">
-            </div>
-        </div>
-            
-        <div id="descripcion">
-            <p>${descripcion}</p>
-        </div>`
-};*/
-
+async function pokeInfo(pokemon){
+    console.log(pokemon);
+}
