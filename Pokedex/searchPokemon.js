@@ -1,28 +1,24 @@
-//*Pokemon
-// 
-//    -id 
-//    -nombre
-//    -imagen
-//    -peso
-//    -altura
-//    -generacion
-//    -tipo
-//    -descripcion
 
 //funciones
 export default async function peticion (url) {
     const response = await fetch(url);  
     const responseJson = await response.json();
-
+    
     return responseJson;
 };
 
-
-
-/*
-async function pokeInfo(pokemon) {
-
-    const pokedata = await peticion(pokemon.dataset.url);
+/*Pokemon
+  -id 
+  -nombre
+  -imagen
+  -peso
+  -altura
+  -generacion
+  -tipo
+   -descripcion*/
+export async function pokeInfo(pokemon) {
+    console.log(pokemon);
+    const pokedata = await peticion(pokemon.dataset.info);
     const species = await peticion(pokedata.species.url);
     const region = await peticion(species.generation.url);
     const tipos = []
@@ -57,5 +53,5 @@ async function pokeInfo(pokemon) {
         <div id="descripcion">
             <p>${descripcion}</p>
         </div>`
-};*/
+};
 

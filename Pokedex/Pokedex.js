@@ -1,11 +1,11 @@
 import generateOptions, { filterPokemon } from "./Filtro-select.js";
-import peticion from "./searchPokemon.js";
+import peticion, {pokeInfo}  from "./searchPokemon.js";
 
 //queryselector
 const pokeTable = document.querySelector('#pokeTable');
 const selects = document.querySelectorAll('.select');
+const pokeCards = document.querySelectorAll('.pokeCard');
 const pokeDatos = document.querySelector('#pokeDatos');
-//const options = document.querySelectorAll('.option');
 
 
 //eventos
@@ -23,19 +23,15 @@ selects.forEach(select =>{
     
 });
 
-
-
-
 //funciones
 
 export default function showPokemon(pokemon) {
-
     const pokeCard = `
-    <card class="pokeCard">
+    <div class="pokeCard" data-info="${pokemon}"onclick="pokeInfo(this)">
         <h4># ${pokemon.id.toString().padStart(3,0)}</h4>
-        <img src="${pokemon.sprites.front_default}">
+        <img src="${pokemon.sprites.front_default}" >
         <h1>${pokemon.name}</h1>
-    </card>`
+    </div>`
     
     pokeTable.innerHTML += pokeCard ;
 };
@@ -48,6 +44,4 @@ async function allPokemon( max = 12 ){
    }
 }
 
-async function pokeInfo(pokemon){
-    console.log(pokemon);
-}
+
