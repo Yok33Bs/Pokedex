@@ -4,9 +4,6 @@ import peticion, {pokeInfo}  from "./searchPokemon.js";
 //queryselector
 const pokeTable = document.querySelector('#pokeTable');
 const selects = document.querySelectorAll('.select');
-const pokeCards = document.querySelectorAll('.pokeCard');
-const pokeDatos = document.querySelector('#pokeDatos');
-
 
 //eventos
 
@@ -43,5 +40,3 @@ async function allPokemon( max = 12 ){
       showPokemon(pokemon);
    }
 }
-
-

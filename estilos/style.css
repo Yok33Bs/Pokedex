@@ -22,26 +22,14 @@ body{
     background-color: var(--baseColor);
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 45% 45%;
-    justify-content: space-around;
 }
 
-#divBuscador{
-    width: 100%;
-    display: grid;
-    margin: 1%;
-    justify-items: center;
-}
-
-#nombre {
-    width: 80%;
-}
 
 #divFiltros{
-    width: 100%;
+    width: 98%;
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 17% 35% 9% 35%;
+    grid-template-columns: repeat(2,15% 30%);
     margin: 0.8%;
     justify-content: space-around;
     justify-items: center;
@@ -63,8 +51,8 @@ body{
 /*contenido*/
 
 #contain{
-    width: 100%;
-    padding: 2%;
+    width: 98%;
+    padding-top: 2%;
     display: grid;
     justify-items: center;
 }
@@ -79,7 +67,6 @@ body{
     flex-wrap: wrap;
     flex-direction: row;
 }
-
 
 .pokeCard{
     display: flex;
