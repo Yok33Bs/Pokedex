@@ -6,16 +6,6 @@ export default async function peticion (url) {
     return responseJson;
 };
 
-/*Pokemon
-  -id 
-  -nombre
-  -imagen
-  -peso
-  -altura
-  -generacion
-  -tipo
-   -descripcion*/
-
 export async function pokeInfo(pokemon) {
     console.log(pokemon);
     const {name,id,species,types,sprites} = await peticion(pokemon.dataset.info);
