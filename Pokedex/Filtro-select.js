@@ -13,7 +13,6 @@ export default async function generateOptions (select){
 
 
 export async function filterPokemon(selected){
-   pokeTable.innerHTML = "" ;
    const result = await peticion(selected.value);
    
    switch (selected.id) {
@@ -27,8 +26,10 @@ export async function filterPokemon(selected){
 function filterGeneration({pokemon_species}) {
    pokemon_species.forEach(async species =>{
       
+      
       const specie = await peticion(species.url);
-      createPokemon(specie);
+      
+      await createPokemon(specie);
    })
 };
 function filterType({pokemon}) {
@@ -36,7 +37,7 @@ function filterType({pokemon}) {
    pokemon.forEach(async pokemon => {
       
       const result = await peticion(pokemon.pokemon.url);
-      createPokemon(result);
+      cardHTML(await createPokemon(result));
       
    })
 };

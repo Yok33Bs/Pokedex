@@ -19,13 +19,14 @@ upEvent()
 
 //eventos
 function upEvent (){
-    
+    pokeArray=[];
     selects.forEach(select =>{
     
         select.onclick = generateOptions(select)
     
         select.addEventListener('change', (e)=>{             
             e.preventDefault();
+            pokeArray = []
             filterPokemon(select);
         });
         
@@ -49,7 +50,7 @@ function upEvent (){
 async function getPokemon(){
     for( min; min <= max; min++){
         const pokemon = await peticion(`https://pokeapi.co/api/v2/pokemon-species/${min}/`)
-        cardHTML(await createPokemon(pokemon));
+       await createPokemon(pokemon);
     }
 }
 
@@ -68,10 +69,11 @@ export async function createPokemon(pokemonJson) {
         flavors: flavor_text_entries
     }
     
-    return info
+    cardHTML(info)
 };
 
-function cardHTML(info){
+export function cardHTML(info){
+    
     
     const pokeCard = document.createElement('div');
     pokeCard.classList.add('pokeCard');
