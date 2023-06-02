@@ -41,6 +41,7 @@ function upEvent (){
     pokeDatos.addEventListener('click', (e)=>{
         e.preventDefault();
         if(e.target.classList.contains('btn-close')) showOrHidden();
+        if(e.target.parentElement.classList.contains('btn-close')) showOrHidden();
     })
     
 }
