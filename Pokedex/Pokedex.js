@@ -19,7 +19,6 @@ upEvent()
 
 //eventos
 function upEvent (){
-    pokeArray=[];
     selects.forEach(select =>{
     
         select.onclick = generateOptions(select)

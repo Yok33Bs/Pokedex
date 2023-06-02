@@ -24,6 +24,8 @@ export async function filterPokemon(selected){
 };
 
 function filterGeneration({pokemon_species}) {
+
+   console.log(pokemon_species);
    pokemon_species.forEach(async species =>{
       
       
@@ -33,11 +35,13 @@ function filterGeneration({pokemon_species}) {
    })
 };
 function filterType({pokemon}) {
+
    
-   pokemon.forEach(async pokemon => {
+   pokemon.forEach(async (pokemon , i) => {
       
       const result = await peticion(pokemon.pokemon.url);
-      cardHTML(await createPokemon(result));
+      const species = await peticion(result.species.url);
+      await createPokemon(species );
       
    })
 };
